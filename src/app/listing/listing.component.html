@@ -1,4 +1,6 @@
-
+<!-- <div class="spinnerLoad" *ngIf="spinnerLoad">
+  <div class="spinner-grow"></div>
+</div> -->
 <div class=" col-12 p-0 listingAll">
 <div class="logo col-12">
   <img title="" alt="WPS" src="https://content.wpspublish.com/images/thumbs/0008753.png" class="img-responsive img-width">
@@ -25,7 +27,7 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody class="shadow">
+  <tbody class="shadow" [hidden]="spinnerLoad">
     <tr *ngFor="let user of userList">
       <th scope="row">{{user.id}}</th>
       <td>{{user.examineeName}}</td>
@@ -37,7 +39,13 @@
     <tr *ngIf="userList&& userList.length == 0">
       <td class="text-center" colspan="7">No data found</td>
     </tr>
-
+  </tbody>
+  <tbody class="shadow" *ngIf="spinnerLoad">
+    <tr>
+      <td class="spinnerLoad text-center" colspan="7">
+        <div class="spinner-border text-dark"></div>
+      </td>
+    </tr>
   </tbody>
 </table>
 </div>

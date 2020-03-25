@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
-
+import { Router} from '@angular/router';
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
@@ -9,11 +9,17 @@ import { BackendApiService } from '../services/backend-api.service';
 export class ListingComponent implements OnInit {
   public userList: any[] = [];
   userListCopy: any = [];
-  constructor(private _apiService: BackendApiService) {
+  spinnerLoad = false;
+  constructor(private _apiService: BackendApiService, private _route:Router) {
 
   }
   ngOnInit() {
+    const lock = localStorage.getItem("Login");
+    if(lock){
     this.getCognitiveTestUsers();
+    }else{
+      this._route.navigate(['']);
+    }
 
   }
 
@@ -27,15 +33,21 @@ export class ListingComponent implements OnInit {
     }
   }
   getCognitiveTestUsers() {
+    this.spinnerLoad = true;
     this._apiService.getCognitiveTestUsers()
       .subscribe((data) => {
+        setTimeout(()=>{
+          this.spinnerLoad = false;
+        },1000)
+
         const resp = data['body'];
-        console.log(resp);
+        // console.log(resp);
         if (resp && resp.Users && resp.Users.length > 0) {
-          this.userList = [...this.userList, ...resp.Users];
-          this.userListCopy = [...this.userListCopy, ...resp.Users];
+            this.userList = [...this.userList, ...resp.Users];
+            this.userListCopy = [...this.userListCopy, ...resp.Users];
         }
       }, (error) => {
+        this.spinnerLoad = false;
         console.log('error::', error);
       },
       );
@@ -56,9 +68,6 @@ export class ListingComponent implements OnInit {
           a.download = 'CognitiveTestReport.csv';
           a.click();
         }
-
-
-
       }, (error) => {
         console.log('error::', error.error.text);
       },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router'
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    localStorage.clear();
   }
 
   login(){
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
       this.errMsg = 'incorrect password';
     }else{
       this._route.navigate(['./listing']);
+      localStorage.setItem("Login", 'true');
     }
   }
 
