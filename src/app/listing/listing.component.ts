@@ -8,7 +8,7 @@ import { BackendApiService } from '../services/backend-api.service';
 })
 export class ListingComponent implements OnInit {
   public userList: any[] = [];
-  userListCopy:any=[];
+  userListCopy: any = [];
   constructor(private _apiService: BackendApiService) {
 
   }
@@ -17,13 +17,13 @@ export class ListingComponent implements OnInit {
 
   }
 
-  searchList(data){
-    if(data && data.length > 0){
-      this.userList = this.userListCopy.filter((x)=> {
-          return x.examineeName.indexOf(data) >= 0;
+  searchList(data) {
+    if (data && data.length > 0) {
+      this.userList = this.userListCopy.filter((x) => {
+        return x.examineeName.indexOf(data) >= 0;
       });
-    }else{
-      this.userList =  this.userListCopy;
+    } else {
+      this.userList = this.userListCopy;
     }
   }
   getCognitiveTestUsers() {
@@ -43,27 +43,26 @@ export class ListingComponent implements OnInit {
 
   getCognitiveTestResult(user) {
     console.log('user::', user);
-    let list ={
-      "examineeId":'222',
-      "testName":user.testName
+    let list = {
+      "examineeId": '222',
+      "testName": user.testName
     }
     this._apiService.getCognitiveTestResult(list)
-    .subscribe((data) => {
-      const resp = data['body'];
-      console.log('data',data);
-      console.log('resp',resp);
-       // var encodedUri = encodeURI(error.error.text);
-        // var link = document.createElement("a");
-        // link.setAttribute("href", encodedUri);
-        // link.setAttribute("download", "list_data.csv");
-        // document.body.appendChild(link);
-        // link.click();
+      .subscribe((data) => {
+        if (data &&  data['body']) {
+          const resp = data['body'];
+          const a = document.createElement('a');
+          a.href = 'data:attachment/csv;charset=utf-8,' + encodeURI(resp);
+          a.download = 'CognitiveTestReport.csv';
+          a.click();
+        }
 
 
-    }, (error) => {
+
+      }, (error) => {
         console.log('error::', error.error.text);
       },
-    );
+      );
 
   }
 
