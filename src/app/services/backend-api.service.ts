@@ -22,10 +22,11 @@ export class BackendApiService {
 
   public getCognitiveTestResult(data) {
     const headers = new HttpHeaders(
-      { 'application-key': '0847eb02-7fd8-4e69-bda0-db7e3a454b1b' },
+      { 'application-key': '0847eb02-7fd8-4e69-bda0-db7e3a454b1b'}, 
     );
     const options = {
-      headers
+      headers,
+      responseType: 'text' as 'json'
     };
     const url = this.baseUrl + '/getCognitiveTestResult';
     const req = new HttpRequest('POST', url, data, options);
