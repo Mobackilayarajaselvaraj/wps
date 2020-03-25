@@ -1,0 +1,11 @@
+<div class="loginT">
+  <h2>Login</h2>
+  <div class="col-12 forms">
+    <label class="labels">UserName:</label>
+    <input type="text" name="email" [(ngModel)]="userName" class="inputs">
+    <label class="labels">Password:</label>
+    <input type="password" name="password" [(ngModel)]="password" class="inputs">
+    <h5 class="text-danger text-center" *ngIf="errMsg">{{errMsg}}</h5>
+    <button type="submit" class="btn btnSubmit" [disabled]='!(userName && password)' (click)="login()">Submit</button>
+  </div>
+</div>

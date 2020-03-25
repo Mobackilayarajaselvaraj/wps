@@ -1,0 +1,46 @@
+.fa-download{
+  cursor: pointer;
+  color: #1D9D73;
+}
+
+.searchInput{
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 400px;
+  height: 40px;
+  outline-color: #009596;
+  padding: 0 15px;
+  margin-bottom: 15px;
+}
+.logo{
+  border-bottom: 2px solid #1D9D73;
+    padding: 1em 0;
+}
+.logout:focus{
+  outline: 0;
+}
+.logoutT{
+  font-family: benton-regular,sans-serif;
+  font-size: 18px;
+  color: #4b5259;
+  line-height: 1.65;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.userImg {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: gainsboro;
+  text-align: center;
+  font-size: 3em;
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.fa-user:before{
+    position: relative;
+    top: 8px;
+}

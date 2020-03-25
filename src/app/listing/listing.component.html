@@ -1,0 +1,43 @@
+
+<div class=" col-12 p-0 listingAll">
+<div class="logo col-12">
+  <img title="" alt="WPS" src="https://content.wpspublish.com/images/thumbs/0008753.png" class="img-responsive img-width">
+  <!-- <small class="text-muted">User List</small> -->
+  <div class="logout float-right" routerLink="">
+    <span class="logoutT">Log Out</span>
+    <i class="fa fa-user userImg" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="listSearch col-12 p-0 my-2">
+    <h2 class="text-center my-3 mt-0">Cognitive Test Users</h2>
+    <input type="text" name="search" class="searchInput" placeholder="Examinee Name..." #sL (keyup)="searchList(sL.value)">
+</div>
+
+ <table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Examinee Name</th>
+      <th scope="col">Examinee Id</th>
+      <th scope="col">Age</th>
+      <th scope="col">Test Name</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody class="shadow">
+    <tr *ngFor="let user of userList">
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.examineeName}}</td>
+      <td>{{user.examineeId}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.testName}}</td>
+      <td><i class="fa fa-download" aria-hidden="true" (click)="getCognitiveTestResult(user)"></i></td>
+    </tr>
+    <tr *ngIf="userList&& userList.length == 0">
+      <td class="text-center" colspan="7">No data found</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
