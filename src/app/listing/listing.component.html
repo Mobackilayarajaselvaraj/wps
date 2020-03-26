@@ -24,6 +24,7 @@
       <th scope="col">Examinee Id</th>
       <th scope="col">Age</th>
       <th scope="col">Test Name</th>
+      <th scope="col">Date</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -34,7 +35,10 @@
       <td>{{user.examineeId}}</td>
       <td>{{user.age}}</td>
       <td>{{user.testName}}</td>
-      <td><i class="fa fa-download" aria-hidden="true" (click)="getCognitiveTestResult(user)"></i></td>
+      <td>{{user.date}}</td>
+      <td>
+        <i class="fa fa-download" aria-hidden="true" (click)="getCognitiveTestResult(user)"  data-toggle="tooltip" data-placement="top" title="download test results!"></i>
+      </td>
     </tr>
     <tr *ngIf="userList&& userList.length == 0">
       <td class="text-center" colspan="7">No data found</td>
