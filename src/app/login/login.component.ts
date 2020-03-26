@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _route:Router) { }
+  constructor(private _route:Router, private toastr: ToastrService) { }
 
   userName:string;
   password:string;
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
     }else{
       this._route.navigate(['./listing']);
       localStorage.setItem("Login", 'true');
+      this.toastr.success('Login Successfully!');
     }
   }
 

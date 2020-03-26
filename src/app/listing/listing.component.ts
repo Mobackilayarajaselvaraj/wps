@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild  } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
 import { Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
+
   public userList: any[] = [];
   userListCopy: any = [];
   spinnerLoad = false;
-  constructor(private _apiService: BackendApiService, private _route:Router) {
+  constructor(private _apiService: BackendApiService, private _route:Router, private toastr: ToastrService) {
 
   }
   ngOnInit() {
+    // this.toastr.success('listing!');
     const lock = localStorage.getItem("Login");
     if(lock){
     this.getCognitiveTestUsers();
@@ -22,6 +26,8 @@ export class ListingComponent implements OnInit {
     }
 
   }
+
+
 
   searchList(data) {
     if (data && data.length > 0) {
