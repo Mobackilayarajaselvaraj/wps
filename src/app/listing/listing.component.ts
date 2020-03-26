@@ -39,6 +39,10 @@ export class ListingComponent implements OnInit {
     }
   }
 
+  reverse(){
+    this.userList.reverse();
+  }
+
   ascdescExam(val){
     if(val == 1){
       this.userList.sort((a, b) => a.examineeName.localeCompare(b.examineeName));

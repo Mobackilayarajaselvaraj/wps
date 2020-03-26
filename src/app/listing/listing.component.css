@@ -48,6 +48,9 @@
   font-size: 10px;
   cursor: pointer;
 }
+.titleT{
+  cursor: pointer;
+}
 .spinnerLoad {
   /* position: fixed;
   top: 0;
