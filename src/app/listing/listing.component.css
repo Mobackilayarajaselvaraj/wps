@@ -44,7 +44,10 @@
     position: relative;
     top: 8px;
 }
-
+.arrowIcon {
+  font-size: 10px;
+  cursor: pointer;
+}
 .spinnerLoad {
   /* position: fixed;
   top: 0;

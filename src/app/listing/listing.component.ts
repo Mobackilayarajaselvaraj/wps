@@ -38,6 +38,42 @@ export class ListingComponent implements OnInit {
       this.userList = this.userListCopy;
     }
   }
+
+  ascdescExam(val){
+    if(val == 1){
+      this.userList.sort((a, b) => a.examineeName.localeCompare(b.examineeName));
+    }else{
+      this.userList.sort((a, b) => b.examineeName.localeCompare(a.examineeName));
+    }
+  }
+
+  ascdescAge(val){
+    if(val == 1){
+      this.userList.sort((a, b) => a.age.toString().localeCompare(b.age.toString()));
+    }else{
+      this.userList.sort((a, b) => b.age.toString().localeCompare(a.age.toString()));
+    }
+  }
+
+
+  ascdescTest(val){
+    if(val == 1){
+      this.userList.sort((a, b) => a.testName.localeCompare(b.testName));
+    }else{
+      this.userList.sort((a, b) => b.testName.localeCompare(a.testName));
+    }
+  }
+
+  ascdescDate(val){
+    if(val == 1){
+      this.userList.sort((a, b) => a.date.localeCompare(b.date));
+    }else{
+      this.userList.sort((a, b) => b.date.localeCompare(a.date));
+    }
+  }
+
+
+
   getCognitiveTestUsers() {
     this.spinnerLoad = true;
     this._apiService.getCognitiveTestUsers()
