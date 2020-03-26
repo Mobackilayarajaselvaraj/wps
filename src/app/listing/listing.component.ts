@@ -17,7 +17,6 @@ export class ListingComponent implements OnInit {
 
   }
   ngOnInit() {
-    // this.toastr.success('listing!');
     const lock = localStorage.getItem("Login");
     if(lock){
     this.getCognitiveTestUsers();
@@ -95,6 +94,7 @@ export class ListingComponent implements OnInit {
       }, (error) => {
         this.spinnerLoad = false;
         console.log('error::', error);
+        this.toastr.error('no data');
       },
       );
   }

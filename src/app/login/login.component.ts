@@ -27,22 +27,16 @@ export class LoginComponent implements OnInit {
   login(){
     this.errMsg = false;
     if(this.userName !== this.list.userName){
-      this.errMsg = 'incorrect userName';
-      this.timer();
+      // this.errMsg = 'incorrect userName!';
+      this.toastr.error('incorrect userName!');
     } else if(this.password !== this.list.password){
-      this.errMsg = 'incorrect password';
-      this.timer();
+      // this.errMsg = 'incorrect password';
+      this.toastr.error('incorrect password!');
     }else{
       this._route.navigate(['./listing']);
       localStorage.setItem("Login", 'true');
       this.toastr.success('Login Successfully!');
     }
-  }
-
-  timer(){
-    setTimeout(() => {
-      this.errMsg = false;
-    }, 3000);
   }
 
 }
