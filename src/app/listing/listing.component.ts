@@ -102,20 +102,25 @@ export class ListingComponent implements OnInit {
   getCognitiveTestResult(user) {
     console.log('user::', user);
     let list = {
-      "examineeId": '222',
+      "examineeId": user.examineeId,
       "testName": user.testName
     }
     this._apiService.getCognitiveTestResult(list)
       .subscribe((data) => {
+        // console.log(data)
         if (data &&  data['body']) {
           const resp = data['body'];
           const a = document.createElement('a');
           a.href = 'data:attachment/csv;charset=utf-8,' + encodeURI(resp);
           a.download = 'CognitiveTestReport.csv';
           a.click();
+        }else{
+          // this.toastr.error('no data!');
+          // console.log('no data')
         }
       }, (error) => {
         console.log('error::', error.error.text);
+        this.toastr.error('no data!');
       },
       );
 
