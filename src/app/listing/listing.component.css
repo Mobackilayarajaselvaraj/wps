@@ -65,3 +65,7 @@
   left: 50%;
   color: #343a40; */
 }
+.listingAll tbody.shadow td, tbody.shadow th {
+  width:100px;
+  word-break: break-all;
+}
