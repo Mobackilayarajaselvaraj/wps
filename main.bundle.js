@@ -642,7 +642,7 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/listing/listing.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".fa-download{\n  cursor: pointer;\n  color: #00898F;\n}\n\n.searchInput{\n  background-color: #fff;\n  border: 1px solid #e5e5e5;\n  border-radius: 3px;\n  width: 400px;\n  height: 40px;\n  outline-color: #009596;\n  padding: 0 15px;\n  margin-bottom: 15px;\n}\n\n.logo{\n  border-bottom: 2px solid #1D9D73;\n    padding: 1em 0;\n}\n\n.logout:focus{\n  outline: 0;\n}\n\n.logoutT{\n  font-family: benton-regular,sans-serif;\n  font-size: 18px;\n  color: #4b5259;\n  line-height: 1.65;\n  cursor: pointer;\n  margin-right: 10px;\n}\n\n.userImg {\n  width: 65px;\n  height: 65px;\n  border-radius: 50%;\n  background: gainsboro;\n  text-align: center;\n  font-size: 3em;\n  color: #fff;\n  vertical-align: middle;\n  cursor: pointer;\n}\n\n.fa-user:before{\n    position: relative;\n    top: 8px;\n}\n\n.arrowIcon {\n  font-size: 10px;\n  cursor: pointer;\n}\n\n.titleT{\n  cursor: pointer;\n}\n\n.spinnerLoad {\n  /* position: fixed;\n  top: 0;\n  left: 0;\n  background: #8080806b;\n  width: 100%;\n  height: 100%; */\n}\n\n.spinnerLoad .spinner-grow {\n  /* position: absolute;\n  top: 50%;\n  left: 50%;\n  color: #343a40; */\n}\n"
+module.exports = ".fa-download{\n  cursor: pointer;\n  color: #00898F;\n}\n\n.searchInput{\n  background-color: #fff;\n  border: 1px solid #e5e5e5;\n  border-radius: 3px;\n  width: 400px;\n  height: 40px;\n  outline-color: #009596;\n  padding: 0 15px;\n  margin-bottom: 15px;\n}\n\n.logo{\n  border-bottom: 2px solid #1D9D73;\n    padding: 1em 0;\n}\n\n.logout:focus{\n  outline: 0;\n}\n\n.logoutT{\n  font-family: benton-regular,sans-serif;\n  font-size: 18px;\n  color: #4b5259;\n  line-height: 1.65;\n  cursor: pointer;\n  margin-right: 10px;\n}\n\n.userImg {\n  width: 65px;\n  height: 65px;\n  border-radius: 50%;\n  background: gainsboro;\n  text-align: center;\n  font-size: 3em;\n  color: #fff;\n  vertical-align: middle;\n  cursor: pointer;\n}\n\n.fa-user:before{\n    position: relative;\n    top: 8px;\n}\n\n.arrowIcon {\n  font-size: 10px;\n  cursor: pointer;\n}\n\n.titleT{\n  cursor: pointer;\n}\n\n.spinnerLoad {\n  /* position: fixed;\n  top: 0;\n  left: 0;\n  background: #8080806b;\n  width: 100%;\n  height: 100%; */\n}\n\n.spinnerLoad .spinner-grow {\n  /* position: absolute;\n  top: 50%;\n  left: 50%;\n  color: #343a40; */\n}\n\n.listingAll tbody.shadow td, tbody.shadow th {\n  width:100px;\n  word-break: break-all;\n}\n"
 
 /***/ }),
 
@@ -754,7 +754,7 @@ var ListingComponent = /** @class */ (function () {
             }
         }, function (error) {
             _this.spinnerLoad = false;
-            console.log('error::', error);
+            // console.log('error::', error);
             _this.toastr.error('no data');
         });
     };
