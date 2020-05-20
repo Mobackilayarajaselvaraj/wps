@@ -93,7 +93,7 @@ export class ListingComponent implements OnInit {
         }
       }, (error) => {
         this.spinnerLoad = false;
-        console.log('error::', error);
+        // console.log('error::', error);
         this.toastr.error('no data');
       },
       );
