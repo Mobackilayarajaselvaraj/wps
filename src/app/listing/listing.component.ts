@@ -27,15 +27,7 @@ export class ListingComponent implements OnInit {
 
   }
 
-ueser = [
-  {"id":475,"examineeName":"zday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":8,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"hday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":1,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"zday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":9,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"bday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":1111,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"cday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":222,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"eday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":33,"date":"2020-05-21 08:56:16"},
-  {"id":475,"examineeName":"dday-Test3","examineeId":"Uday-Test3","testName":"CognitiveTestPOC","age":5,"date":"2020-05-21 08:56:16"},
-]
+
 
   searchList(data) {
     if (data && data.length > 0) {
@@ -86,8 +78,8 @@ ueser = [
         const resp = data['body'];
         // console.log(resp);
         if (resp && resp.Users && resp.Users.length > 0) {
-            this.userList = [...this.userList, ...resp.Users, ...this.ueser];
-            this.userListCopy = [...this.userListCopy, ...resp.Users, ...this.ueser];
+            this.userList = [...this.userList, ...resp.Users];
+            this.userListCopy = [...this.userListCopy, ...resp.Users];
         }
       }, (error) => {
         this.spinnerLoad = false;
