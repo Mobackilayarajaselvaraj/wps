@@ -22,37 +22,31 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">
-        <span class="titleT" (click)="ascdescOrderT('examineeName')">Examinee Name
-          <i class="fa fa-arrow-up arrowIcon" aria-hidden="true"></i>
-          <i class="fa fa-arrow-down arrowIcon" aria-hidden="true"></i>
-        </span>
+        <span class="titleT" data-order='asc' #attr1 (click)="orderControl('examineeName',attr1)">Examinee Name</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('examineeName',attr1, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('examineeName',attr1, 'desc')"></i>
         </th>
       <th scope="col">
-        <span class="titleT" (click)="ascdescOrderT('examineeId')">Examinee Id
-          <i class="fa fa-arrow-up arrowIcon" aria-hidden="true"></i>
-          <i class="fa fa-arrow-down arrowIcon" aria-hidden="true"></i>
-        </span>
+        <span class="titleT" data-order='asc' #attr2 (click)="orderControl('examineeId',attr2)">Examinee Id</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('examineeId',attr2, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('examineeId',attr2, 'desc')"></i>
 
       </th>
       <th scope="col">
-        <span class="titleT" (click)="ascDescOrder('age')">Age
-          <i class="fa fa-arrow-up arrowIcon" aria-hidden="true"></i>
-          <i class="fa fa-arrow-down arrowIcon" aria-hidden="true"></i>
-        </span>
+        <span class="titleT" data-order='asc' #attr3 (click)="orderControl('age',attr3)">Age</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('age',attr3, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('age',attr3, 'desc')"></i>
+      </th>
+      <th scope="col">
+        <span class="titleT" data-order='asc' #attr4 (click)="orderControl('testName',attr4)">Test Name</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('testName',attr4, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('testName',attr4, 'desc')"></i>
 
       </th>
       <th scope="col">
-        <span class="titleT" (click)="ascdescOrderT('testName')">Test Name
-          <i class="fa fa-arrow-up arrowIcon" aria-hidden="true"></i>
-          <i class="fa fa-arrow-down arrowIcon" aria-hidden="true"></i>
-        </span>
-
-      </th>
-      <th scope="col">
-        <span  class="titleT" (click)="ascdescOrderT('date')">Date
-          <i class="fa fa-arrow-up arrowIcon" aria-hidden="true"></i>
-          <i class="fa fa-arrow-down arrowIcon" aria-hidden="true"></i>
-        </span>
+        <span  class="titleT" data-order='asc' #attr5 (click)="orderControl('date',attr5)">Date</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('date',attr5, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('date',attr5, 'desc')"></i>
 
       </th>
       <th scope="col">Action</th>

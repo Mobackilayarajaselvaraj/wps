@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild  } from '@angular/core';
 import { BackendApiService } from '../services/backend-api.service';
 import { Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AttrAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-listing',
@@ -41,31 +42,42 @@ export class ListingComponent implements OnInit {
 
 
 
-  toggle = false;
-  toggles =false;
-  ascDescOrder(data){
-    this.toggle = !this.toggle;
-
-    if(this.toggle){
-      this.userList.sort((a, b) => parseFloat(a[data]) - parseFloat(b[data]));
+  orderControl(label,element,orderType?){
+    let ot;
+    if(orderType){
+      ot = orderType;
     }else{
-      this.userList.reverse()
+     ot = element.dataset['order'];
+    }
+
+   const type = typeof this.userList[0][label]
+   switch(type){
+    case 'number':
+      this.sortNumber(label, ot)
+      break;
+      case 'string':
+      this.sortString(label, ot)
+      break;
+   }
+   element.dataset['order'] = element.dataset['order'] == 'asc'?'desc':'asc';
+
+  }
+
+  sortNumber(label,type){
+    if(type==="asc"){
+      this.userList.sort((a, b) => parseFloat(a[label]) - parseFloat(b[label]));
+    }else{
+      this.userList.sort((a, b) => parseFloat(b[label]) - parseFloat(a[label]));
     }
   }
 
-  ascdescOrderT(data){
-    this.toggles = !this.toggles;
-    if(this.toggles){
-      this.userList.sort((a, b) => a[data].toLowerCase() !== b[data].toLowerCase() ? a[data].toLowerCase() < b[data].toLowerCase() ? -1 : 1 : 0);
+  sortString(label,type){
+    if(type==="asc"){
+    this.userList.sort((cur,next)=> next[label].toLowerCase() > cur[label].toLowerCase() ? -1 : 1);
     }else{
-      this.userList.reverse()
+      this.userList.sort((cur,next)=> next[label].toLowerCase() > cur[label].toLowerCase() ? 1 : -1);
     }
   }
-
-
-
-
-
 
   getCognitiveTestUsers() {
     this.spinnerLoad = true;

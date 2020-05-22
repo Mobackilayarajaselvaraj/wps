@@ -47,6 +47,7 @@
 .arrowIcon {
   font-size: 10px;
   cursor: pointer;
+  /* opacity: 0; */
 }
 .titleT{
   cursor: pointer;
