@@ -642,14 +642,14 @@ var AppModule = /** @class */ (function () {
 /***/ "./src/app/listing/listing.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".fa-download{\n  cursor: pointer;\n  color: #00898F;\n}\n\n.searchInput{\n  background-color: #fff;\n  border: 1px solid #e5e5e5;\n  border-radius: 3px;\n  width: 400px;\n  height: 40px;\n  outline-color: #009596;\n  padding: 0 15px;\n  margin-bottom: 15px;\n}\n\n.logo{\n  border-bottom: 2px solid #1D9D73;\n    padding: 1em 0;\n}\n\n.logout:focus{\n  outline: 0;\n}\n\n.logoutT{\n  font-family: benton-regular,sans-serif;\n  font-size: 18px;\n  color: #4b5259;\n  line-height: 1.65;\n  cursor: pointer;\n  margin-right: 10px;\n}\n\n.userImg {\n  width: 65px;\n  height: 65px;\n  border-radius: 50%;\n  background: gainsboro;\n  text-align: center;\n  font-size: 3em;\n  color: #fff;\n  vertical-align: middle;\n  cursor: pointer;\n}\n\n.fa-user:before{\n    position: relative;\n    top: 8px;\n}\n\n.arrowIcon {\n  font-size: 10px;\n  cursor: pointer;\n}\n\n.titleT{\n  cursor: pointer;\n}\n\n.spinnerLoad {\n  /* position: fixed;\n  top: 0;\n  left: 0;\n  background: #8080806b;\n  width: 100%;\n  height: 100%; */\n}\n\n.spinnerLoad .spinner-grow {\n  /* position: absolute;\n  top: 50%;\n  left: 50%;\n  color: #343a40; */\n}\n\n.listingAll tbody.shadow td, tbody.shadow th {\n  width:100px;\n  word-break: break-all;\n}\n\n.spinnerLoadcsv {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.8);\n  z-index: 99999;\n  position: fixed;\n  opacity: 1;\n}\n\n.spinnerLoadcsv .spinner-grow{\n  position: absolute;\n    top: 50%;\n    left: 50%;\n    background-color: #fff;\n    width: 5rem;\n    height: 5rem;\n}\n"
+module.exports = ".fa-download{\n  cursor: pointer;\n  color: #00898F;\n}\n\n.searchInput{\n  background-color: #fff;\n  border: 1px solid #e5e5e5;\n  border-radius: 3px;\n  width: 400px;\n  height: 40px;\n  outline-color: #009596;\n  padding: 0 15px;\n  margin-bottom: 15px;\n}\n\n.logo{\n  border-bottom: 2px solid #1D9D73;\n    padding: 1em 0;\n}\n\n.logout:focus{\n  outline: 0;\n}\n\n.logoutT{\n  font-family: benton-regular,sans-serif;\n  font-size: 18px;\n  color: #4b5259;\n  line-height: 1.65;\n  cursor: pointer;\n  margin-right: 10px;\n}\n\n.userImg {\n  width: 65px;\n  height: 65px;\n  border-radius: 50%;\n  background: gainsboro;\n  text-align: center;\n  font-size: 3em;\n  color: #fff;\n  vertical-align: middle;\n  cursor: pointer;\n}\n\n.fa-user:before{\n    position: relative;\n    top: 8px;\n}\n\n.arrowIcon {\n  font-size: 10px;\n  cursor: pointer;\n  /* opacity: 0; */\n}\n\n.titleT{\n  cursor: pointer;\n}\n\n.spinnerLoad {\n  /* position: fixed;\n  top: 0;\n  left: 0;\n  background: #8080806b;\n  width: 100%;\n  height: 100%; */\n}\n\n.spinnerLoad .spinner-grow {\n  /* position: absolute;\n  top: 50%;\n  left: 50%;\n  color: #343a40; */\n}\n\n.listingAll tbody.shadow td, tbody.shadow th {\n  width:100px;\n  word-break: break-all;\n}\n\n.spinnerLoadcsv {\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.8);\n  z-index: 99999;\n  position: fixed;\n  opacity: 1;\n}\n\n.spinnerLoadcsv .spinner-grow{\n  position: absolute;\n    top: 50%;\n    left: 50%;\n    background-color: #fff;\n    width: 5rem;\n    height: 5rem;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/listing/listing.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"spinnerLoadcsv\" *ngIf=\"spinnerLoadcsv\">\n  <div class=\"spinner-grow\"></div>\n</div>\n<div class=\"container\">\n<div class=\" col-12 p-0 listingAll\">\n<div class=\"logo col-12\">\n  <img title=\"\" alt=\"WPS\" src=\"https://content.wpspublish.com/images/thumbs/0008753.png\" class=\"img-responsive img-width\">\n  <!-- <small class=\"text-muted\">User List</small> -->\n  <div class=\"logout float-right\" routerLink=\"\">\n    <span class=\"logoutT\">Log Out</span>\n    <i class=\"fa fa-user userImg\" aria-hidden=\"true\"></i>\n  </div>\n</div>\n\n<div class=\"listSearch col-12 p-0 my-2\">\n    <h2 class=\"text-center my-3 mt-0\">Cognitive Test Users</h2>\n    <input type=\"text\" name=\"search\" class=\"searchInput\" placeholder=\"Examinee Name...\" #sL (keyup)=\"searchList(sL.value)\">\n</div>\n\n <table class=\"table table-hover\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">\n        <span class=\"titleT\" (click)=\"ascdescOrderT('examineeName')\">Examinee Name\n          <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\"></i>\n        </span>\n        </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" (click)=\"ascdescOrderT('examineeId')\">Examinee Id\n          <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\"></i>\n        </span>\n\n      </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" (click)=\"ascDescOrder('age')\">Age\n          <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\"></i>\n        </span>\n\n      </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" (click)=\"ascdescOrderT('testName')\">Test Name\n          <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\"></i>\n        </span>\n\n      </th>\n      <th scope=\"col\">\n        <span  class=\"titleT\" (click)=\"ascdescOrderT('date')\">Date\n          <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\"></i>\n          <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\"></i>\n        </span>\n\n      </th>\n      <th scope=\"col\">Action</th>\n    </tr>\n  </thead>\n  <tbody class=\"shadow\" [hidden]=\"spinnerLoad\">\n    <tr *ngFor=\"let user of userList\">\n      <th scope=\"row\">{{user.id}}</th>\n      <td>{{user.examineeName}}</td>\n      <td>{{user.examineeId}}</td>\n      <td>{{user.age}}</td>\n      <td>{{user.testName}}</td>\n      <td>{{user.date}}</td>\n      <td>\n        <i class=\"fa fa-download\" aria-hidden=\"true\" (click)=\"getCognitiveTestResult(user)\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"download test results!\"></i>\n      </td>\n    </tr>\n    <tr *ngIf=\"userList&& userList.length == 0\">\n      <td class=\"text-center\" colspan=\"7\">No data found</td>\n    </tr>\n  </tbody>\n  <tbody class=\"shadow\" *ngIf=\"spinnerLoad\">\n    <tr>\n      <td class=\"spinnerLoad text-center\" colspan=\"7\">\n        <div class=\"spinner-border text-dark\"></div>\n      </td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
+module.exports = "<div class=\"spinnerLoadcsv\" *ngIf=\"spinnerLoadcsv\">\n  <div class=\"spinner-grow\"></div>\n</div>\n<div class=\"container\">\n<div class=\" col-12 p-0 listingAll\">\n<div class=\"logo col-12\">\n  <img title=\"\" alt=\"WPS\" src=\"https://content.wpspublish.com/images/thumbs/0008753.png\" class=\"img-responsive img-width\">\n  <!-- <small class=\"text-muted\">User List</small> -->\n  <div class=\"logout float-right\" routerLink=\"\">\n    <span class=\"logoutT\">Log Out</span>\n    <i class=\"fa fa-user userImg\" aria-hidden=\"true\"></i>\n  </div>\n</div>\n\n<div class=\"listSearch col-12 p-0 my-2\">\n    <h2 class=\"text-center my-3 mt-0\">Cognitive Test Users</h2>\n    <input type=\"text\" name=\"search\" class=\"searchInput\" placeholder=\"Examinee Name...\" #sL (keyup)=\"searchList(sL.value)\">\n</div>\n\n <table class=\"table table-hover\">\n  <thead class=\"thead-dark\">\n    <tr>\n      <th scope=\"col\">#</th>\n      <th scope=\"col\">\n        <span class=\"titleT\" data-order='asc' #attr1 (click)=\"orderControl('examineeName',attr1)\">Examinee Name</span>\n        <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('examineeName',attr1, 'asc')\"></i>\n        <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('examineeName',attr1, 'desc')\"></i>\n        </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" data-order='asc' #attr2 (click)=\"orderControl('examineeId',attr2)\">Examinee Id</span>\n        <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('examineeId',attr2, 'asc')\"></i>\n        <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('examineeId',attr2, 'desc')\"></i>\n\n      </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" data-order='asc' #attr3 (click)=\"orderControl('age',attr3)\">Age</span>\n        <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('age',attr3, 'asc')\"></i>\n        <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('age',attr3, 'desc')\"></i>\n      </th>\n      <th scope=\"col\">\n        <span class=\"titleT\" data-order='asc' #attr4 (click)=\"orderControl('testName',attr4)\">Test Name</span>\n        <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('testName',attr4, 'asc')\"></i>\n        <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('testName',attr4, 'desc')\"></i>\n\n      </th>\n      <th scope=\"col\">\n        <span  class=\"titleT\" data-order='asc' #attr5 (click)=\"orderControl('date',attr5)\">Date</span>\n        <i class=\"fa fa-arrow-up arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('date',attr5, 'asc')\"></i>\n        <i class=\"fa fa-arrow-down arrowIcon\" aria-hidden=\"true\" (click)=\"orderControl('date',attr5, 'desc')\"></i>\n\n      </th>\n      <th scope=\"col\">Action</th>\n    </tr>\n  </thead>\n  <tbody class=\"shadow\" [hidden]=\"spinnerLoad\">\n    <tr *ngFor=\"let user of userList\">\n      <th scope=\"row\">{{user.id}}</th>\n      <td>{{user.examineeName}}</td>\n      <td>{{user.examineeId}}</td>\n      <td>{{user.age}}</td>\n      <td>{{user.testName}}</td>\n      <td>{{user.date}}</td>\n      <td>\n        <i class=\"fa fa-download\" aria-hidden=\"true\" (click)=\"getCognitiveTestResult(user)\"  data-toggle=\"tooltip\" data-placement=\"top\" title=\"download test results!\"></i>\n      </td>\n    </tr>\n    <tr *ngIf=\"userList&& userList.length == 0\">\n      <td class=\"text-center\" colspan=\"7\">No data found</td>\n    </tr>\n  </tbody>\n  <tbody class=\"shadow\" *ngIf=\"spinnerLoad\">\n    <tr>\n      <td class=\"spinnerLoad text-center\" colspan=\"7\">\n        <div class=\"spinner-border text-dark\"></div>\n      </td>\n    </tr>\n  </tbody>\n</table>\n</div>\n</div>\n"
 
 /***/ }),
 
@@ -684,8 +684,6 @@ var ListingComponent = /** @class */ (function () {
         this.userListCopy = [];
         this.spinnerLoad = false;
         this.spinnerLoadcsv = false;
-        this.toggle = false;
-        this.toggles = false;
     }
     ListingComponent.prototype.ngOnInit = function () {
         var lock = localStorage.getItem("Login");
@@ -706,22 +704,39 @@ var ListingComponent = /** @class */ (function () {
             this.userList = this.userListCopy;
         }
     };
-    ListingComponent.prototype.ascDescOrder = function (data) {
-        this.toggle = !this.toggle;
-        if (this.toggle) {
-            this.userList.sort(function (a, b) { return parseFloat(a[data]) - parseFloat(b[data]); });
+    ListingComponent.prototype.orderControl = function (label, element, orderType) {
+        var ot;
+        if (orderType) {
+            ot = orderType;
         }
         else {
-            this.userList.reverse();
+            ot = element.dataset['order'];
+        }
+        var type = typeof this.userList[0][label];
+        switch (type) {
+            case 'number':
+                this.sortNumber(label, ot);
+                break;
+            case 'string':
+                this.sortString(label, ot);
+                break;
+        }
+        element.dataset['order'] = element.dataset['order'] == 'asc' ? 'desc' : 'asc';
+    };
+    ListingComponent.prototype.sortNumber = function (label, type) {
+        if (type === "asc") {
+            this.userList.sort(function (a, b) { return parseFloat(a[label]) - parseFloat(b[label]); });
+        }
+        else {
+            this.userList.sort(function (a, b) { return parseFloat(b[label]) - parseFloat(a[label]); });
         }
     };
-    ListingComponent.prototype.ascdescOrderT = function (data) {
-        this.toggles = !this.toggles;
-        if (this.toggles) {
-            this.userList.sort(function (a, b) { return a[data].toLowerCase() !== b[data].toLowerCase() ? a[data].toLowerCase() < b[data].toLowerCase() ? -1 : 1 : 0; });
+    ListingComponent.prototype.sortString = function (label, type) {
+        if (type === "asc") {
+            this.userList.sort(function (cur, next) { return next[label].toLowerCase() > cur[label].toLowerCase() ? -1 : 1; });
         }
         else {
-            this.userList.reverse();
+            this.userList.sort(function (cur, next) { return next[label].toLowerCase() > cur[label].toLowerCase() ? 1 : -1; });
         }
     };
     ListingComponent.prototype.getCognitiveTestUsers = function () {
@@ -749,7 +764,8 @@ var ListingComponent = /** @class */ (function () {
         console.log('user::', user);
         var list = {
             "examineeId": user.examineeId,
-            "testName": user.testName
+            "testName": user.testName,
+            "age": user.age
         };
         this.spinnerLoadcsv = true;
         setTimeout(function () {
