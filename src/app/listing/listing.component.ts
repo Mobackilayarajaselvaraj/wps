@@ -105,7 +105,8 @@ export class ListingComponent implements OnInit {
     console.log('user::', user);
     let list = {
       "examineeId": user.examineeId,
-      "testName": user.testName
+      "testName": user.testName,
+      "age":user.age
     }
     this.spinnerLoadcsv = true;
     setTimeout(()=>{
