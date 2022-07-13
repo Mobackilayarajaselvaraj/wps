@@ -3,7 +3,7 @@ import { HttpClient, HttpParams, HttpRequest, HttpEvent, HttpHeaders } from '@an
 
 @Injectable()
 export class BackendApiService {
-  private baseUrl = 'https://cors-anywhere.herokuapp.com/http://13.235.99.192:8081';
+  private baseUrl = 'http://13.235.99.192:8081';
 
   constructor(private http: HttpClient ) {}
 
