@@ -104,6 +104,8 @@ export class ListingComponent implements OnInit {
   getCognitiveTestResult(user) {
     console.log('user::', user);
     let list = {
+      "clientId" : user.clientId,
+      "examinerId" : user.examinerId,
       "examineeId": user.examineeId,
       "testName": user.testName,
       "age":user.age

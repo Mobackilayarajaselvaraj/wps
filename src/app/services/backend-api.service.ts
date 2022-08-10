@@ -3,7 +3,8 @@ import { HttpClient, HttpParams, HttpRequest, HttpEvent, HttpHeaders } from '@an
 
 @Injectable()
 export class BackendApiService {
-  private baseUrl = 'http://13.235.99.192:8081';
+  //private baseUrl = 'http://13.235.99.192:8081';
+  private baseUrl = 'http://wpsapi.moback.com:8081/report/';
 
   constructor(private http: HttpClient ) {}
 
@@ -14,7 +15,7 @@ export class BackendApiService {
     const options = {
       headers,
     };
-    const url = this.baseUrl + '/getCognitiveTestUsers';
+    const url = this.baseUrl + 'getCognitiveTestUsers';
     const req = new HttpRequest('GET', url, '', options);
     return this.http.request(req);
   }
@@ -28,7 +29,7 @@ export class BackendApiService {
       headers,
       responseType: 'text' as 'json'
     };
-    const url = this.baseUrl + '/getCognitiveTestResult';
+    const url = this.baseUrl + 'getCognitiveTestResult';
     const req = new HttpRequest('POST', url, data, options);
     return this.http.request(req);
   }
