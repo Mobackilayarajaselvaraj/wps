@@ -22,14 +22,14 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">
-        <span class="titleT" data-order='asc' #attr1 (click)="orderControl('examineeName',attr1)">Examinee Name</span>
-        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('examineeName',attr1, 'asc')"></i>
-        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('examineeName',attr1, 'desc')"></i>
+        <span class="titleT" data-order='asc' #attr1 (click)="orderControl('clientId',attr1)">Client ID</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('clientId',attr1, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('clientId',attr1, 'desc')"></i>
         </th>
       <th scope="col">
-        <span class="titleT" data-order='asc' #attr2 (click)="orderControl('examineeId',attr2)">Examinee Id</span>
-        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('examineeId',attr2, 'asc')"></i>
-        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('examineeId',attr2, 'desc')"></i>
+        <span class="titleT" data-order='asc' #attr2 (click)="orderControl('examinerId',attr2)">Examiner Id</span>
+        <i class="fa fa-arrow-up arrowIcon" aria-hidden="true" (click)="orderControl('examinerId',attr2, 'asc')"></i>
+        <i class="fa fa-arrow-down arrowIcon" aria-hidden="true" (click)="orderControl('examinerId',attr2, 'desc')"></i>
 
       </th>
       <th scope="col">
@@ -55,8 +55,8 @@
   <tbody class="shadow" [hidden]="spinnerLoad">
     <tr *ngFor="let user of userList">
       <th scope="row">{{user.id}}</th>
-      <td>{{user.examineeName}}</td>
-      <td>{{user.examineeId}}</td>
+      <td>{{user.clientId}}</td>
+      <td>{{user.examinerId}}</td>
       <td>{{user.age}}</td>
       <td>{{user.testName}}</td>
       <td>{{user.date}}</td>
