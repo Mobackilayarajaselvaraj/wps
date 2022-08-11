@@ -33,7 +33,7 @@ export class ListingComponent implements OnInit {
   searchList(data) {
     if (data && data.length > 0) {
       this.userList = this.userListCopy.filter((x) => {
-        return x.examineeName.toLowerCase().indexOf(data.toLowerCase()) >= 0;
+        return x.clientId.indexOf(data.toLowerCase()) >= 0;
       });
     } else {
       this.userList = this.userListCopy;
