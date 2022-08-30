@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpRequest, HttpEvent, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class BackendApiService {
   //private baseUrl = 'http://13.235.99.192:8081';
-  private baseUrl = 'http://wpsapi.moback.com:8081/report/';
+  private baseUrl = environment.apiBaseURL + '/report/';
 
   constructor(private http: HttpClient ) {}
 

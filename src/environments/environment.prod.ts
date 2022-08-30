@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseURL: 'http://wpsapi.moback.com:8081'
+  
 };
